@@ -10,6 +10,7 @@ int main(void)
     int xAxe = 0;
     int yAxe = 0;
     char choice;
+    _Bool kill = 0;
     
     //This do loop will continue until the user (Q)uits the program
     do
@@ -18,22 +19,48 @@ int main(void)
     choice = GetChar();
     
     
-        //This if statement will chante the cords on a virtual 
+        //This switch statement will chante the cords on a virtual 
         //graft recording where the user has moved and returning
         //it on request or exiting the program by pressing 'Q'
         
-        if(choice == 'N')
-            yAxe++;
-        else if(choice == 'S')
-            yAxe--;
-        else if(choice == 'E')
-            xAxe++;
-        else if(choice == 'W')
-            xAxe--;
-        else if(choice == 'L')
-            printf("Your location is %d by %d\n", xAxe, yAxe);
         
+        switch (choice)
+        {
         
+            case 'N':
+            case 'n':
+                yAxe++;
+                break;
+            
+            case 'S':
+            case 's':
+                yAxe--;
+                break;
+                
+            case 'E':
+            case 'e':
+                xAxe++;
+                break;
+                
+            case 'W':
+            case 'w':
+                xAxe--;
+                break;
+                
+            case 'L':
+            case 'l':
+                printf("Your location is %d by %d\n", xAxe, yAxe);
+                break;
+                
+            case 'Q':
+            case 'q':
+                kill = 1;
+                
+            default:
+                printf("Invlaid entry please try again.\n");
+                
+     }           
+     
     }
-    while (choice != 'Q');
+    while (kill != 1);
 }
